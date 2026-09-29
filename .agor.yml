@@ -1,0 +1,10 @@
+version: 2
+environment:
+  default: render
+  variants:
+    render:
+      description: 'Per-branch Render web service (reused by name, suspended on Stop)'
+      start: './scripts/render-env.sh start {{shellQuote branch.name}} {{shellQuote branch.ref}} https://github.com/richardfogaca/agor-render-demo'
+      stop: './scripts/render-env.sh stop {{shellQuote branch.name}} {{shellQuote branch.ref}} https://github.com/richardfogaca/agor-render-demo'
+      logs: './scripts/render-env.sh logs {{shellQuote branch.name}} {{shellQuote branch.ref}} https://github.com/richardfogaca/agor-render-demo'
+      nuke: './scripts/render-env.sh nuke {{shellQuote branch.name}} {{shellQuote branch.ref}} https://github.com/richardfogaca/agor-render-demo'
